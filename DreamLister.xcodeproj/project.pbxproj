@@ -22,6 +22,7 @@
 		914270221E7612AF00A719FB /* Store+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9142701A1E7612AF00A719FB /* Store+CoreDataClass.swift */; };
 		914270231E7612AF00A719FB /* Store+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9142701B1E7612AF00A719FB /* Store+CoreDataProperties.swift */; };
 		914270251E76186E00A719FB /* MaterialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914270241E76186E00A719FB /* MaterialView.swift */; };
+		914270271E761AC100A719FB /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914270261E761AC100A719FB /* ItemCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		9142701A1E7612AF00A719FB /* Store+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Store+CoreDataClass.swift"; path = "../Store+CoreDataClass.swift"; sourceTree = "<group>"; };
 		9142701B1E7612AF00A719FB /* Store+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Store+CoreDataProperties.swift"; path = "../Store+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		914270241E76186E00A719FB /* MaterialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialView.swift; sourceTree = "<group>"; };
+		914270261E761AC100A719FB /* ItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				914270241E76186E00A719FB /* MaterialView.swift */,
+				914270261E761AC100A719FB /* ItemCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -191,6 +194,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				914270271E761AC100A719FB /* ItemCell.swift in Sources */,
 				9142701F1E7612AF00A719FB /* Item+CoreDataProperties.swift in Sources */,
 				9142701E1E7612AF00A719FB /* Item+CoreDataClass.swift in Sources */,
 				914270211E7612AF00A719FB /* ItemType+CoreDataProperties.swift in Sources */,

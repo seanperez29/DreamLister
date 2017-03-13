@@ -38,7 +38,7 @@
                                 <rect key="frame" x="16" y="132" width="343" height="535"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="150" id="dtH-xO-1dF">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="150" id="dtH-xO-1dF" customClass="ItemCell" customModule="DreamLister" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="343" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dtH-xO-1dF" id="i9y-qF-kz7">
@@ -108,8 +108,18 @@
                                                 <constraint firstAttribute="bottomMargin" secondItem="7is-eT-trQ" secondAttribute="bottom" id="wrM-H8-oaB"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="detailLabel" destination="mNb-WS-3kQ" id="uRL-uY-aJj"/>
+                                            <outlet property="priceLabel" destination="n75-kw-LyJ" id="zP2-Po-SOe"/>
+                                            <outlet property="thumbImage" destination="xxQ-oH-bx3" id="FdM-Dn-hkm"/>
+                                            <outlet property="titleLabel" destination="dtk-F1-See" id="L1Q-IU-qso"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="rqs-02-Kvm"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="ATL-md-NcU"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -128,6 +138,10 @@
                             <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="segmentedControl" destination="3M4-5x-XgX" id="Mr6-DF-OfG"/>
+                        <outlet property="tableView" destination="V2a-bS-sqB" id="spy-w0-bbE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
