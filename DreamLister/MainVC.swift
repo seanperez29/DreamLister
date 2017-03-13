@@ -37,6 +37,13 @@ class MainVC: UIViewController {
             print(error)
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ItemDetailsVC" {
+            let controller = segue.destination as! ItemDetailsVC
+            controller.managedObjectContext = managedObjectContext
+        }
+    }
 
 }
 
@@ -58,6 +65,10 @@ extension MainVC: UITableViewDelegate, UITableViewDataSource {
         return 150
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
+    }
+
 }
 
 extension MainVC: NSFetchedResultsControllerDelegate {

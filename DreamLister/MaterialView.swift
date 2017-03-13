@@ -8,16 +8,16 @@
 
 import UIKit
 
-private var materialKey = false
-
-extension UIView {
+class MaterialView: UIView {
+    
+    private var materialKey = false
 
     @IBInspectable var materialDesign: Bool {
         get {
-            return self.materialDesign
+            return materialKey
         } set {
-            self.materialDesign = newValue
-            if materialDesign {
+            materialKey = newValue
+            if materialKey {
                 layer.masksToBounds = false
                 layer.cornerRadius = 3.0
                 layer.shadowOpacity = 0.8
