@@ -23,6 +23,8 @@
 		914270231E7612AF00A719FB /* Store+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9142701B1E7612AF00A719FB /* Store+CoreDataProperties.swift */; };
 		914270251E76186E00A719FB /* MaterialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914270241E76186E00A719FB /* MaterialView.swift */; };
 		914270271E761AC100A719FB /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914270261E761AC100A719FB /* ItemCell.swift */; };
+		914270291E7657BF00A719FB /* ItemDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914270281E7657BE00A719FB /* ItemDetailsVC.swift */; };
+		9142702B1E765C5B00A719FB /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9142702A1E765C5B00A719FB /* CustomTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,8 @@
 		9142701B1E7612AF00A719FB /* Store+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Store+CoreDataProperties.swift"; path = "../Store+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		914270241E76186E00A719FB /* MaterialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialView.swift; sourceTree = "<group>"; };
 		914270261E761AC100A719FB /* ItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
+		914270281E7657BE00A719FB /* ItemDetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemDetailsVC.swift; sourceTree = "<group>"; };
+		9142702A1E765C5B00A719FB /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				91426FD41E76083100A719FB /* MainVC.swift */,
+				914270281E7657BE00A719FB /* ItemDetailsVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -101,6 +106,7 @@
 			children = (
 				914270241E76186E00A719FB /* MaterialView.swift */,
 				914270261E761AC100A719FB /* ItemCell.swift */,
+				9142702A1E765C5B00A719FB /* CustomTextField.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -202,11 +208,13 @@
 				91426FD51E76083100A719FB /* MainVC.swift in Sources */,
 				914270231E7612AF00A719FB /* Store+CoreDataProperties.swift in Sources */,
 				9142701D1E7612AF00A719FB /* Image+CoreDataProperties.swift in Sources */,
+				914270291E7657BF00A719FB /* ItemDetailsVC.swift in Sources */,
 				914270201E7612AF00A719FB /* ItemType+CoreDataClass.swift in Sources */,
 				91426FD31E76083100A719FB /* AppDelegate.swift in Sources */,
 				914270221E7612AF00A719FB /* Store+CoreDataClass.swift in Sources */,
 				91426FDB1E76083100A719FB /* DreamLister.xcdatamodeld in Sources */,
 				9142701C1E7612AF00A719FB /* Image+CoreDataClass.swift in Sources */,
+				9142702B1E765C5B00A719FB /* CustomTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

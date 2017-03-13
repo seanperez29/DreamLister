@@ -27,7 +27,7 @@ class MainVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        performFetch()
     }
     
     func performFetch() {
@@ -40,15 +40,22 @@ class MainVC: UIViewController {
 
 }
 
-
 extension MainVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        let sectionInfo = fetchedResultsController.sections![section]
+        return sectionInfo.numberOfObjects
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath) as! ItemCell
+        let item = fetchedResultsController.object(at: indexPath)
+        cell.configureCell(item)
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 150
     }
     
 }
@@ -79,7 +86,8 @@ extension MainVC: NSFetchedResultsControllerDelegate {
             tableView.deleteRows(at: [newIndexPath], with: .fade)
         case .update:
             if let cell = tableView.cellForRow(at: indexPath) as? ItemCell {
-                
+                let item = controller.object(at: indexPath) as! Item
+                cell.configureCell(item)
             }
         case .move:
             tableView.deleteRows(at: [indexPath], with: .fade)
