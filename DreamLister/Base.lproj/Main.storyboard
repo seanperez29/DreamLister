@@ -218,6 +218,9 @@
                                 <state key="normal" title="Save Item">
                                     <color key="titleColor" red="0.91443548259999996" green="0.91443548259999996" blue="0.91443548259999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="savePressed:" destination="mLi-C6-GdR" eventType="touchUpInside" id="guP-3Z-ppo"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Details" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gAk-yq-C8i" customClass="CustomTextField" customModule="DreamLister" customModuleProvider="target">
                                 <rect key="frame" x="16" y="182" width="343" height="60"/>
@@ -266,7 +269,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WlN-yZ-MA4" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="C8O-fK-fwQ" userLabel="Select Picture"/>
+                <tapGestureRecognizer id="C8O-fK-fwQ" userLabel="Select Picture">
+                    <connections>
+                        <action selector="pictureSelected:" destination="mLi-C6-GdR" id="Uba-tB-TBR"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1518" y="-646"/>
         </scene>

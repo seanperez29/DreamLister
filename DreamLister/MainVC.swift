@@ -18,7 +18,7 @@ class MainVC: UIViewController {
         let fetchRequest = NSFetchRequest<Item>()
         let entity = Item.entity()
         fetchRequest.entity = entity
-        let dateSort = NSSortDescriptor(key: "created", ascending: true)
+        let dateSort = NSSortDescriptor(key: "created", ascending: false)
         fetchRequest.sortDescriptors = [dateSort]
         let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self.managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
         fetchedResultsController.delegate = self
@@ -41,7 +41,9 @@ class MainVC: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ItemDetailsVC" {
             let controller = segue.destination as! ItemDetailsVC
+            let item = sender as! Item
             controller.managedObjectContext = managedObjectContext
+            controller.itemToEdit = item
         }
     }
 
@@ -67,6 +69,8 @@ extension MainVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
+        let item = fetchedResultsController.object(at: indexPath)
+        performSegue(withIdentifier: "ItemDetailsVC", sender: item)
     }
 
 }
@@ -82,27 +86,19 @@ extension MainVC: NSFetchedResultsControllerDelegate {
     }
     
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
-        guard let newIndexPath = newIndexPath else {
-            print("Unable to obtain a newIndexPath")
-            return
-        }
-        guard let indexPath = indexPath else {
-            print("Unable to obtain an indexPath")
-            return
-        }
         switch type {
         case .insert:
-            tableView.insertRows(at: [newIndexPath], with: .fade)
+            tableView.insertRows(at: [newIndexPath!], with: .fade)
         case .delete:
-            tableView.deleteRows(at: [newIndexPath], with: .fade)
+            tableView.deleteRows(at: [indexPath!], with: .fade)
         case .update:
-            if let cell = tableView.cellForRow(at: indexPath) as? ItemCell {
-                let item = controller.object(at: indexPath) as! Item
+            if let cell = tableView.cellForRow(at: indexPath!) as? ItemCell {
+                let item = controller.object(at: indexPath!) as! Item
                 cell.configureCell(item)
             }
         case .move:
-            tableView.deleteRows(at: [indexPath], with: .fade)
-            tableView.insertRows(at: [newIndexPath], with: .fade)
+            tableView.deleteRows(at: [indexPath!], with: .fade)
+            tableView.insertRows(at: [newIndexPath!], with: .fade)
         }
     }
     

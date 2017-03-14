@@ -17,33 +17,16 @@ class ItemDetailsVC: UIViewController {
     @IBOutlet weak var detailsField: CustomTextField!
     var managedObjectContext: NSManagedObjectContext!
     var stores = [Store]()
-    var item: Item? {
-        didSet {
-            title = "Edit"
-        }
-    }
+    var itemToEdit: Item?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let item = itemToEdit {
+            setItemToEditData(item: item)
+        }
         let topItem = navigationController?.navigationBar.topItem
         topItem?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-//        let store = Store(context: managedObjectContext)
-//        store.name = "Best Buy"
-//        let store2 = Store(context: managedObjectContext)
-//        store2.name = "Tesla Dealership"
-//        let store3 = Store(context: managedObjectContext)
-//        store3.name = "Frys Electronics"
-//        let store4 = Store(context: managedObjectContext)
-//        store4.name = "Target"
-//        let store5 = Store(context: managedObjectContext)
-//        store5.name = "Amazon"
-//        let store6 = Store(context: managedObjectContext)
-//        store6.name = "KMart"
-//        do {
-//            try managedObjectContext.save()
-//        } catch {
-//            print(error)
-//        }
+        
         performFetch()
     }
     
@@ -55,6 +38,52 @@ class ItemDetailsVC: UIViewController {
         } catch {
             print(error)
         }
+    }
+    
+    func setItemToEditData(item: Item) {
+        title = "Edit"
+        titleField.text = item.title
+        priceField.text = String(item.price)
+        detailsField.text = item.details
+        print("STORE: \(item.store?.name)")
+        if let store = item.store {
+            for (index, value) in stores.enumerated() {
+                if value.name == store.name {
+                    storePicker.selectRow(index, inComponent: 0, animated: false)
+                    break
+                }
+            }
+        }
+        
+    }
+    
+    @IBAction func savePressed(_ sender: Any) {
+        if let title = titleField.text, title != "", let details = detailsField.text, details != "", let price = priceField.text, price != "" {
+            if let item = itemToEdit {
+                item.title = title
+                item.details = details
+                item.price = (price as NSString).doubleValue
+                item.store = stores[storePicker.selectedRow(inComponent: 0)]
+            } else {
+                let item = Item(context: managedObjectContext)
+                item.title = title
+                item.details = details
+                item.price = (price as NSString).doubleValue
+                item.store = stores[storePicker.selectedRow(inComponent: 0)]
+            }
+            do {
+                try managedObjectContext.save()
+            } catch {
+                print(error)
+            }
+            let _ = navigationController?.popViewController(animated: true)
+        } else {
+            print("You need to enter all info to save a new item")
+        }
+    }
+    
+    @IBAction func pictureSelected(_ sender: Any) {
+        
     }
 
 }
