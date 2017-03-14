@@ -57,18 +57,16 @@ class ItemDetailsVC: UIViewController {
     
     @IBAction func savePressed(_ sender: Any) {
         if let title = titleField.text, title != "", let details = detailsField.text, details != "", let price = priceField.text, price != "" {
-            if let item = itemToEdit {
-                item.title = title
-                item.details = details
-                item.price = (price as NSString).doubleValue
-                item.store = stores[storePicker.selectedRow(inComponent: 0)]
+            var item: Item
+            if let itemToEdit = itemToEdit {
+                item = itemToEdit
             } else {
-                let item = Item(context: managedObjectContext)
-                item.title = title
-                item.details = details
-                item.price = (price as NSString).doubleValue
-                item.store = stores[storePicker.selectedRow(inComponent: 0)]
+                item = Item(context: managedObjectContext)
             }
+            item.title = title
+            item.details = details
+            item.price = (price as NSString).doubleValue
+            item.store = stores[storePicker.selectedRow(inComponent: 0)]
             do {
                 try managedObjectContext.save()
             } catch {
