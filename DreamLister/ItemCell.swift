@@ -16,9 +16,13 @@ class ItemCell: UITableViewCell {
     @IBOutlet weak var detailLabel: UILabel!
     
     func configureCell(_ item: Item) {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = NumberFormatter.Style.decimal
+        let number = numberFormatter.string(from: NSNumber(value: item.price))!
         titleLabel.text = item.title
-        priceLabel.text = "$\(item.price)"
+        priceLabel.text = "$\(number)"
         detailLabel.text = item.details
+        thumbImage.image = item.image?.image as? UIImage
     }
     
 }

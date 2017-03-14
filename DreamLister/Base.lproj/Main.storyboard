@@ -48,7 +48,7 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7is-eT-trQ" customClass="MaterialView" customModule="DreamLister" customModuleProvider="target">
                                                     <rect key="frame" x="8" y="8" width="327" height="133"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tesla" translatesAutoresizingMaskIntoConstraints="NO" id="xxQ-oH-bx3">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tesla" translatesAutoresizingMaskIntoConstraints="NO" id="xxQ-oH-bx3">
                                                             <rect key="frame" x="8" y="16" width="100" height="100"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="100" id="3P4-QT-fF1"/>
@@ -161,7 +161,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imagePick" translatesAutoresizingMaskIntoConstraints="NO" id="Sw3-qX-9Zd">
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imagePick" translatesAutoresizingMaskIntoConstraints="NO" id="Sw3-qX-9Zd">
                                 <rect key="frame" x="16" y="72" width="100" height="100"/>
                                 <gestureRecognizers/>
                                 <constraints>
@@ -259,12 +259,16 @@
                     <navigationItem key="navigationItem" title="Add" id="c21-un-fZ3">
                         <barButtonItem key="rightBarButtonItem" systemItem="trash" id="6pa-oO-czu">
                             <color key="tintColor" red="1" green="0.1398304635" blue="0.23409664990000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="deletePressed:" destination="mLi-C6-GdR" id="plh-dN-Lrp"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="detailsField" destination="gAk-yq-C8i" id="9qF-Go-M6U"/>
                         <outlet property="priceField" destination="yCS-6W-Mpr" id="dGS-mF-bHV"/>
                         <outlet property="storePicker" destination="1pA-gF-kG9" id="eKs-NA-9Xg"/>
+                        <outlet property="thumbImage" destination="Sw3-qX-9Zd" id="0y6-8g-O54"/>
                         <outlet property="titleField" destination="iaE-rd-8jD" id="gw7-ZL-Jar"/>
                     </connections>
                 </viewController>
