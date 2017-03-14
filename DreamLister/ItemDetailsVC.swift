@@ -21,13 +21,12 @@ class ItemDetailsVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        performFetch()
         if let item = itemToEdit {
             setItemToEditData(item: item)
         }
         let topItem = navigationController?.navigationBar.topItem
         topItem?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-        
-        performFetch()
     }
     
     func performFetch() {
@@ -45,7 +44,6 @@ class ItemDetailsVC: UIViewController {
         titleField.text = item.title
         priceField.text = String(item.price)
         detailsField.text = item.details
-        print("STORE: \(item.store?.name)")
         if let store = item.store {
             for (index, value) in stores.enumerated() {
                 if value.name == store.name {
